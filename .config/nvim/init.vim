@@ -1,7 +1,6 @@
 " REF: https://gist.github.com/celso/6cefedb9fce92827ee38e8f7411b8b30
 syntax on
 set shell=zsh
-set noshowmode          " use lightline.vim to show mode instead of original mode bar
 " set shellcmdflag=-ic    " set shell to interactive for the current session, make .zshrc load correctly
 set mouse=
 set ruler               " Show the line and column numbers of the cursor.
@@ -37,7 +36,11 @@ set incsearch
 set signcolumn=yes
 
 " osx config
-set clipboard=unnamed           " access your system clipboard
+" access your system clipboard
+set clipboard=unnamed           
+
+" use lightline.vim to show mode instead of original mode bar
+set noshowmode 
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
