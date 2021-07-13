@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Ref: https://wiki.gentoo.org/wiki/Set_Keyboard_Repeat_Delay_and_Rate
+# xset command to set 400 milliseconds delay and 50 repeat rate.
+# works on linux
+# xset r rate 400 50
+
 # Exports
 # set bat as a colorizing pager for man
 # https://github.com/sharkdp/bat#man

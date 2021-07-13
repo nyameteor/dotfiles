@@ -1,4 +1,4 @@
-" REF: https://gist.github.com/celso/6cefedb9fce92827ee38e8f7411b8b30
+" Ref: https://gist.github.com/celso/6cefedb9fce92827ee38e8f7411b8b30
 syntax on
 set shell=zsh
 " set shellcmdflag=-ic    " set shell to interactive for the current session, make .zshrc load correctly
