@@ -54,7 +54,7 @@ alias stat='stat -x'
 #
 # FZF config
 # Reverse the search result
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_OPTS="--no-multi --height 40% --layout=reverse --border --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 
 # When searching for files, change to fd search and allow searching for hidden files
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.sass-cache,node_modules,build,Library} --type f"
@@ -69,7 +69,7 @@ export FZF_DEFAULT_COMMAND="fd --exclude={.git,.sass-cache,node_modules,build,Li
 
 # cdf - cd into the directory of the selected file
 cdf() {
-   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir" || exit
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir" || return
 }
 
 # echo Path
