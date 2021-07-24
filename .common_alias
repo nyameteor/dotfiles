@@ -36,6 +36,8 @@ alias ln="ln -v"
 alias mkdir="mkdir -v"
 
 # Prints disk usage in human readable form
+# `--` means the end of options, see: https://unix.stackexchange.com/a/452793
+alias dul="du -sh -- * | sort -hr"
 # alias d="du -sh"
 
 # Clear the screen of your clutter
