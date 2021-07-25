@@ -18,9 +18,6 @@ behind = "⇣${count}"
 [golang]
 format = "[$symbol()]($style)"
 
-[nodejs]
-format = "via [🤖 $version](bold green) "
-
 [cmd_duration]
 format = "[$duration]($style) "
 min_time = 3_000
@@ -28,7 +25,7 @@ min_time = 3_000
 [character]
 # success_symbol = "[✔](bold green)"
 error_symbol = "[✗](bold red)"
-vicmd_symbol = "[V](bold blue) "
+vicmd_symbol = "[v](bold blue) "
 
 [username]
 style_user = "yellow bold"
