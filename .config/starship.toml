@@ -11,7 +11,11 @@ format = "[$branch]($style) "
 # format = "[$symbol$branch]($style) "
 
 [golang]
-format = "[$symbol()]($style)"
+# format = "[$symbol()]($style)"
+disabled = true
+
+[nodejs]
+disabled = true
 
 [cmd_duration]
 format = "[$duration]($style) "

@@ -49,7 +49,12 @@ alias grep="grep --color"
 alias grepp="grep -P --color"
 
 # Aliases for macOS
+# TODO: add condition
 alias stat='stat -x'
+
+# Vagrant
+alias v="vagrant"
+alias vg="vagrant global-status"
 
 #
 # Functions
