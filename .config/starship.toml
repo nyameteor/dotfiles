@@ -14,7 +14,16 @@ format = "[$branch]($style) "
 # format = "[$symbol()]($style)"
 disabled = true
 
+[rust]
+disabled = true
+
+[python]
+disabled = true
+
 [nodejs]
+disabled = true
+
+[vagrant]
 disabled = true
 
 [cmd_duration]
