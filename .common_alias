@@ -64,7 +64,7 @@ alias vg="vagrant global-status"
 export FZF_DEFAULT_OPTS="--no-multi --height 40% --layout=reverse --border --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 
 # When searching for files, change to fd search and allow searching for hidden files
-export FZF_DEFAULT_COMMAND="fd --exclude={.git,.sass-cache,node_modules,build,Library} --type f"
+export FZF_DEFAULT_COMMAND="fd --type f --follow --exclude={.git,.sass-cache,node_modules,build,Library}"
 # export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 # export FZF_ALT_C_COMMAND="fd -t d . "
 

@@ -57,15 +57,12 @@ source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# example useful setup
+# https://zdharma.github.io/zinit/wiki/Example-Minimal-Setup/
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+
 # https://zdharma.org/zinit/wiki/Example-Minimal-Setup/
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-  zdharma/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-  zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-  zsh-users/zsh-completions
 
 # ______     _   _     
 # | ___ \   | | | |    
