@@ -6,7 +6,6 @@
 #
 # Configs
 #
-
 ## fix: -zsh:no matches found
 setopt no_nomatch
 
@@ -22,8 +21,6 @@ setopt inc_append_history     # add history as soon as the command is entered
 #
 # Exports
 #
-
-# history config
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=50000
 export SAVEHIST=10000
@@ -34,35 +31,10 @@ export TERM="xterm-256color"
 #
 # Aliases
 #
+if [ -f ~/.common_alias ]; then . ~/.common_alias; fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.my_alias ]; then . ~/.my_alias; fi
 
-if [ -f ~/.common_alias ]; then
-    . ~/.common_alias
-fi
-if [ -f ~/.my_alias ]; then
-    . ~/.my_alias
-fi
-
-#
-# Zplugin
-#
-
-# https://github.com/zdharma/zinit
-# https://github.com/zdharma/zinit-configs/blob/master/psprint/zshrc.zsh
-source $HOME/.zinit/bin/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# https://zdharma.github.io/zinit/wiki/Example-Minimal-Setup/
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-
-# https://zdharma.org/zinit/wiki/Example-Minimal-Setup/
 
 # ______     _   _     
 # | ___ \   | | | |    
@@ -72,9 +44,7 @@ zinit light zsh-users/zsh-autosuggestions
 # \_|  \__,_|\__|_| |_|
 # See:
 # https://superuser.com/a/598924/986660
-# To test you $PATH:
-# echo "$PATH" | tr ':' '\n'
-typeset -U path     # keep path alwasy unique, tmux will reload zshrc
+typeset -U path             # keep path alwasy unique, tmux will reload zshrc
 
 path=(
     /usr/local/sbin         # fix: brew doctor warning
@@ -88,3 +58,28 @@ export PATH=":$PATH"
 # https://github.com/starship/starship
 eval "$(starship init zsh)"
 
+#
+# Zplugin
+#
+# https://github.com/zdharma/zinit
+# https://github.com/zdharma/zinit-configs/blob/master/psprint/zshrc.zsh
+source $HOME/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# https://zdharma.github.io/zinit/wiki/Example-Minimal-Setup/
+zinit ice blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+
+# prompt
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+
+# Custom prompt
+# Refer: https://stackoverflow.com/a/59944342
+# PS1="%1d %&$ "

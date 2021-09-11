@@ -7,8 +7,21 @@ truncation_length = 0
 truncate_to_repo = false
 
 [git_branch]
-format = "[$branch]($style) "
+disabled = true
+# format = "[$branch]($style) "
 # format = "[$symbol$branch]($style) "
+
+[git_commit]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = true
 
 [golang]
 # format = "[$symbol()]($style)"
