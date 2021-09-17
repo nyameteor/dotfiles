@@ -35,3 +35,56 @@ set smartcase
 set incsearch
 set signcolumn=yes
 
+" osx config
+" access your system clipboard
+set clipboard=unnamed           
+
+" use lightline.vim to show mode instead of original mode bar
+set noshowmode 
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" https://github.com/vim-airline/vim-airline
+Plug 'vim-airline/vim-airline'
+
+" https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-fugitive'
+
+" https://github.com/dense-analysis/ale 
+Plug 'dense-analysis/ale'
+
+" https://github.com/preservim/nerdtree
+Plug 'preservim/nerdtree', {'on': ['NERDTree', 'NERDTreeFocus', 'NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind'] }
+
+" https://github.com/junegunn/fzf.vim
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+" https://github.com/vimwiki/vimwiki 
+" Plug 'vimwiki/vimwiki'
+
+" https://github.com/ycm-core/YouCompleteMe
+" Plug 'valloric/youcompleteme'
+
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
+
+" Initialize plugin system
+call plug#end()
+
+"----------------------------------------------------------------------
+" NERDTree
+"----------------------------------------------------------------------
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeHijackNetrw = 0
+noremap <space>nn :NERDTree<cr>
+noremap <space>no :NERDTreeFocus<cr>
+noremap <space>nm :NERDTreeMirror<cr>
+noremap <space>nt :NERDTreeToggle<cr>
+

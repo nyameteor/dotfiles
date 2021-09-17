@@ -25,7 +25,7 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=50000
 export SAVEHIST=10000
 
-## fix: kitty $XTERM not recognized by remote
+## fix: some terminal emulator not recognized by remote
 export TERM="xterm-256color"
 
 #
@@ -34,29 +34,6 @@ export TERM="xterm-256color"
 if [ -f ~/.common_alias ]; then . ~/.common_alias; fi
 
 if [ -f ~/.my_alias ]; then . ~/.my_alias; fi
-
-
-# ______     _   _     
-# | ___ \   | | | |    
-# | |_/ /_ _| |_| |__  
-# |  __/ _` | __| '_ \ 
-# | | | (_| | |_| | | |
-# \_|  \__,_|\__|_| |_|
-# See:
-# https://superuser.com/a/598924/986660
-typeset -U path             # keep path alwasy unique, tmux will reload zshrc
-
-path=(
-    /usr/local/sbin         # fix: brew doctor warning
-    $HOME/.local/bin        # pipx
-    $path
-    )
-export PATH=":$PATH"
-
-
-# enable starship
-# https://github.com/starship/starship
-eval "$(starship init zsh)"
 
 #
 # Zplugin
@@ -73,13 +50,28 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 
-# prompt
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-  fi
-}
+#
+# Path
+#
+# Refer: https://superuser.com/a/598924/986660
+typeset -U path             # keep path alwasy unique, tmux will reload zshrc
 
-# Custom prompt
+path=(
+    /usr/local/sbin         # fix: brew doctor warning
+    $HOME/.local/bin        # pipx
+    $path
+    )
+export PATH=":$PATH"
+
+
+#
+# Prompt
+#
+# custom prompt
 # Refer: https://stackoverflow.com/a/59944342
 # PS1="%1d %&$ "
+
+# enable starship
+# Refer: https://github.com/starship/starship
+eval "$(starship init zsh)"
+
