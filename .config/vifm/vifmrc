@@ -244,10 +244,10 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 "         \ gpicview %c,
 "         \ {View in shotwell}
 "         \ shotwell,
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-       \ kitty +icat --place %pwx%ph@%pxx%py  --silent %c
-       \ %pc
-       \ kitty icat --clear --silent %pd
+" fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+"        \ kitty +icat --place %pwx%ph@%pxx%py  --silent %c
+"        \ %pc
+"        \ kitty icat --clear --silent %pd
 " fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
 "          \ identify %f
 
