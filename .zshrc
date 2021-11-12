@@ -36,21 +36,6 @@ if [ -f ~/.common_alias ]; then . ~/.common_alias; fi
 if [ -f ~/.my_alias ]; then . ~/.my_alias; fi
 
 #
-# Zplugin
-#
-# https://github.com/zdharma/zinit
-# https://github.com/zdharma/zinit-configs/blob/master/psprint/zshrc.zsh
-source $HOME/.zinit/bin/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# https://zdharma.github.io/zinit/wiki/Example-Minimal-Setup/
-zinit ice blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-autosuggestions
-
-#
 # Path
 #
 # Refer: https://superuser.com/a/598924/986660
@@ -67,11 +52,19 @@ export PATH=":$PATH"
 #
 # Prompt
 #
-# custom prompt
-# Refer: https://stackoverflow.com/a/59944342
-# PS1="%1d %&$ "
+# To see prompt options: man zshmisc
+# Refer: https://alldrops.info/posts/cli-drops/2021-07-26_customize-zsh-part-2/
+PS1='%B%F{cyan}%6~%f%b%B%(?.%F{green}.%F{red}) %(!.#.$)%f%b ' 
 
 # enable starship
 # Refer: https://github.com/starship/starship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+
+
+#
+# Zplugin
+#
+# Refer: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

@@ -34,6 +34,7 @@ set nu
 set smartcase
 set incsearch
 set signcolumn=yes
+set foldlevel=3
 
 " osx config
 " access your system clipboard
